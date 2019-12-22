@@ -1,0 +1,52 @@
+<HTML>
+<HEAD>
+    <style>
+        .center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 75%;
+        }
+        .imageCenter{
+            height: 75%;
+        }
+    </style>
+    <script>
+        var timerId = 0;
+        function setNewInterval(form)
+                {
+                    if(timerId>=0){
+                        clearInterval(timerId);
+                    }
+                    timerId=setInterval("element.src = images[++nextImage % images.length] + '.jpg';",form.newInterval.value);
+                }
+    </script>
+</HEAD>
+<BODY>
+    <div>
+        <img id="myImg" src="1.jpg" class="center imageCenter" />
+        <form name="interval">
+            <br>
+            <div id="int_title"class="center">interval: <input type="text" id="newInterval" name="newInterval" value="1500"></div>
+            <input type="button" onclick="setNewInterval(interval);" class="center" value="Set interval">
+            </form>
+            <script>
+                var element = document.getElementById("myImg");
+                var images = ["1", "2", "3", "4"];
+                var nextImage = 0;
+                setNewInterval(interval)
+            </script>
+    </div>
+    <script>
+            var dateT = new Date().getHours();
+            if(dateT>=18 || dateT<6){
+                document.body.style.backgroundImage="url(back-2.jpg)";
+                document.getElementById("int_title").style.color="yellow";
+            }else{
+                document.body.style.backgroundImage="url(back-1.jpg)";
+                document.getElementById("int_title").style.color="black";     
+            }
+    </script>
+
+</BODY>
+</HTML>
